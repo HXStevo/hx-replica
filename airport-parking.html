@@ -203,7 +203,14 @@
       .country-grid { grid-template-columns: repeat(2, 1fr); }
       .stats-grid { grid-template-columns: 1fr; }
     }
-  </style>
+  
+      @media (max-width: 640px) {
+        .parking-gallery div[style*="grid-template-columns:1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+        }
+      }
+
+    </style>
 
 
   <!-- HX Tracker -->
@@ -884,6 +891,147 @@
 </section>
 
 <!-- FOOTER -->
+
+      <!-- UK Airport Parking Visual Guide -->
+      <section class="parking-gallery" style="background:#f8f7ff; padding:60px 20px;">
+        <div style="max-width:1100px; margin:0 auto;">
+          <h2 style="text-align:center; color:#542E91; font-size:2rem; margin-bottom:10px;">UK Airport Parking — Visual Guide</h2>
+          <p style="text-align:center; color:#555; margin-bottom:40px; max-width:600px; margin-left:auto; margin-right:auto;">From valet drop-off to park and ride shuttles — here's what to expect when you book airport parking with Holiday Extras.</p>
+
+          <!-- Row 1: Meet & Greet + Park & Ride animated explainers -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px;">
+            <figure style="margin:0; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+              <img
+                src="https://dmy0b9oeprz0f.cloudfront.net/holidayextras.co.uk/seo-images/animated/airport-meet-and-greet-parking.gif"
+                alt="How airport meet and greet parking works — valet collects your car at the terminal drop-off zone"
+                title="Airport Meet and Greet Parking Explained"
+                width="600" height="400"
+                loading="lazy"
+                style="width:100%; height:240px; object-fit:cover; display:block;"
+              >
+              <figcaption style="padding:16px 20px;">
+                <strong style="color:#542E91; display:block; margin-bottom:4px;">Meet and Greet Parking</strong>
+                <span style="color:#666; font-size:0.9rem;">Drive straight to the terminal. Hand your keys to a professional valet and walk to check-in.</span>
+              </figcaption>
+            </figure>
+
+            <figure style="margin:0; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+              <img
+                src="https://dmy0b9oeprz0f.cloudfront.net/holidayextras.co.uk/seo-images/animated/airport-hotels-with-parking.gif"
+                alt="Airport hotels with included parking — stay the night before your flight and leave your car while you fly"
+                title="Airport Hotel with Parking"
+                width="600" height="400"
+                loading="lazy"
+                style="width:100%; height:240px; object-fit:cover; display:block;"
+              >
+              <figcaption style="padding:16px 20px;">
+                <strong style="color:#542E91; display:block; margin-bottom:4px;">Hotel and Parking Packages</strong>
+                <span style="color:#666; font-size:0.9rem;">Stay the night before your flight and leave your car at the hotel while you fly.</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <!-- Row 2: Meet & Greet keys + EV charging -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px;">
+            <figure style="margin:0; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+              <img
+                src="https://dmy0b9oeprz0f.cloudfront.net/holidayextras.co.uk/seo-images/airport-parking/parking-cross-sell-car-keys-2.jpeg"
+                alt="Traveller handing over car keys for airport meet and greet parking — valet service at UK airports"
+                title="Airport Meet and Greet Car Key Handover"
+                width="800" height="500"
+                loading="lazy"
+                style="width:100%; height:240px; object-fit:cover; display:block;"
+              >
+              <figcaption style="padding:16px 20px;">
+                <strong style="color:#542E91; display:block; margin-bottom:4px;">Seamless Key Handover</strong>
+                <span style="color:#666; font-size:0.9rem;">Your valet meets you at the terminal. No shuttles, no walking — just hand over your keys and go.</span>
+              </figcaption>
+            </figure>
+
+            <figure style="margin:0; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+              <img
+                src="https://dmy0b9oeprz0f.cloudfront.net/holidayextras.co.uk/seo-images/airport-parking/airport-parking-electric-vehicles.png"
+                alt="Electric vehicle charging points at UK airport car park — charge your car while you fly"
+                title="Airport Parking with Electric Vehicle Charging"
+                width="800" height="500"
+                loading="lazy"
+                style="width:100%; height:240px; object-fit:cover; display:block;"
+              >
+              <figcaption style="padding:16px 20px;">
+                <strong style="color:#542E91; display:block; margin-bottom:4px;">EV Charging While You Fly</strong>
+                <span style="color:#666; font-size:0.9rem;">Specialist parking with electric vehicle charging bays available at selected UK airports.</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <!-- Row 3: Gatwick monorail + Heathrow parking -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px;">
+            <figure style="margin:0; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+              <img
+                src="https://dmy0b9oeprz0f.cloudfront.net/holidayextras.co.uk/seo-images/airport-parking/gawtick-monorail-800-235.png"
+                alt="Gatwick Airport monorail linking North and South Terminals — used for park and ride transfers to the terminal"
+                title="Gatwick Airport Monorail Terminal Transfer"
+                width="800" height="235"
+                loading="lazy"
+                style="width:100%; height:200px; object-fit:cover; display:block;"
+              >
+              <figcaption style="padding:16px 20px;">
+                <strong style="color:#542E91; display:block; margin-bottom:4px;">Gatwick Park and Ride</strong>
+                <span style="color:#666; font-size:0.9rem;">Gatwick's free monorail connects North and South terminals to car parks — quick, easy and free.</span>
+              </figcaption>
+            </figure>
+
+            <figure style="margin:0; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+              <img
+                src="https://hximagecloud.imgix.net/holidayextras.co.uk/pages/content/heathrow-airport-parking/parking-at-heathrow-airport.jpg"
+                alt="Car parking options at Heathrow Airport — book in advance and save up to 70% with Holiday Extras"
+                title="Heathrow Airport Parking"
+                width="800" height="500"
+                loading="lazy"
+                style="width:100%; height:240px; object-fit:cover; display:block;"
+              >
+              <figcaption style="padding:16px 20px;">
+                <strong style="color:#542E91; display:block; margin-bottom:4px;">Heathrow Airport Parking</strong>
+                <span style="color:#666; font-size:0.9rem;">Multiple parking options at the UK's busiest airport — from budget park and ride to premium meet and greet.</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <!-- Row 4: Hotel with parking + Gatwick Meet & Greet -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+            <figure style="margin:0; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+              <img
+                src="https://dmy0b9oeprz0f.cloudfront.net/holidayextras.co.uk/seo-images/airport-parking/airport-hotels-with-parking-1.jpg"
+                alt="UK airport hotel with on-site car parking — stay and park packages from Holiday Extras"
+                title="Airport Hotel with Parking UK"
+                width="800" height="500"
+                loading="lazy"
+                style="width:100%; height:240px; object-fit:cover; display:block;"
+              >
+              <figcaption style="padding:16px 20px;">
+                <strong style="color:#542E91; display:block; margin-bottom:4px;">Stay and Park Packages</strong>
+                <span style="color:#666; font-size:0.9rem;">Combine a hotel stay with up to 15 nights parking — often cheaper than booking separately.</span>
+              </figcaption>
+            </figure>
+
+            <figure style="margin:0; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+              <img
+                src="https://hximagecloud.imgix.net/seo-system/www.holidayextras.com/gatwick-airport-parking/6055-gatwick-airport-meet-and-greet-meteor-parking.png"
+                alt="Meteor Parking meet and greet service at Gatwick Airport — professional valet parking close to the terminal"
+                title="Gatwick Airport Meteor Parking Meet and Greet"
+                width="800" height="500"
+                loading="lazy"
+                style="width:100%; height:240px; object-fit:cover; display:block;"
+              >
+              <figcaption style="padding:16px 20px;">
+                <strong style="color:#542E91; display:block; margin-bottom:4px;">Gatwick Meet and Greet</strong>
+                <span style="color:#666; font-size:0.9rem;">Premium valet parking at Gatwick — trusted operators, fully insured, right by the terminal.</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
