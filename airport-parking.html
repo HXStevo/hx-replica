@@ -205,29 +205,72 @@
     }
   </style>
 
+
   <!-- HX Tracker -->
   <script src="https://dbq5t2jl0vcpj.cloudfront.net/hx-tracker/tracker-v5-latest.min.js" async></script>
-  <!-- Agent Code Handler -->
+
+  <!-- HX Agent Code Logic (agents.js) -->
   <script>
     (function() {
-      // Read agent code from URL param, cookie, or default to WY992
-      function getAgentCode() {
-        var urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('agent')) {
-          setAgentCookie(urlParams.get('agent'));
-          return urlParams.get('agent');
+      var AGENTS = { main: 'WY992', search: 'WY992' };
+      var COOKIE_EXPIRY_DAYS = 90;
+      var SEO_SEARCH = /^[a-z]*:\/\/[^\/]*(\.google\.|\.yahoo\.|\.bing\.|\.ask\.|\.aol\.|\.duckduckgo\.)[^\/]*/i;
+      var AGENT_TEST = /^[0-9a-z]{4,5}$/i;
+
+      function getParam(name) {
+        var url = window.location.search;
+        var regex = new RegExp('[?&]' + name.replace(/[\[\]]/g, '\$&') + '(=([^&#]*)|&|#|$)');
+        var r = regex.exec(url);
+        return (r && r[2]) ? decodeURIComponent(r[2].replace(/\+/g, ' ')) : null;
+      }
+
+      function getCookie(name) {
+        var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+        return m ? decodeURIComponent(m[1]) : null;
+      }
+
+      function setCookie(name, value, days) {
+        var exp = new Date();
+        exp.setTime(exp.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + exp.toUTCString() + '; path=/; SameSite=Lax';
+      }
+
+      function removeCookie(name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      }
+
+      function agentFromReferrer() {
+        var ref = window.document.referrer || '';
+        if (ref && SEO_SEARCH.test(ref) && !getParam('adcode') && !getParam('email')) {
+          return AGENTS.search || AGENTS.main || 'WT894';
         }
-        var cookie = document.cookie.split(';').find(function(c) { return c.trim().startsWith('agent='); });
-        if (cookie) return cookie.split('=')[1].trim();
-        return 'WY992';
+        return null;
       }
-      function setAgentCookie(code) {
-        document.cookie = 'agent=' + code + '; path=/; max-age=2592000; SameSite=Lax';
+
+      function agentFromUrl() {
+        var a = getParam('agent');
+        return (a && AGENT_TEST.test(a)) ? a : null;
       }
-      window.HX_AGENT = getAgentCode();
-      // Expose helper to build HX URLs with agent code
-      window.buildHXUrl = function(baseUrl) {
-        return baseUrl.replace('agent=' + (window.HX_AGENT || 'WY992'), 'agent=' + window.HX_AGENT);
+
+      function agentFromCookie() {
+        return getCookie('agent') || null;
+      }
+
+      function getDefaultAgent() {
+        return AGENTS.main || 'WT894';
+      }
+
+      function getAgent() {
+        var agent = agentFromReferrer() || agentFromUrl() || agentFromCookie() || getDefaultAgent();
+        removeCookie('agent');
+        setCookie('agent', agent, COOKIE_EXPIRY_DAYS);
+        return agent;
+      }
+
+      window.HX_AGENT = getAgent();
+
+      window.buildHXUrl = function(url) {
+        return url.replace(/agent=[^&]*/g, 'agent=' + window.HX_AGENT);
       };
     })();
   </script>
